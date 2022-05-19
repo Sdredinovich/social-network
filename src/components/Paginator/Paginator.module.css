@@ -1,0 +1,20 @@
+.paginator{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 2px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+.el{
+    padding: 2px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.active{
+    background-color: rgb(211, 211, 211);
+}
+.btn{
+    cursor: pointer;
+    width: 80px;
+}

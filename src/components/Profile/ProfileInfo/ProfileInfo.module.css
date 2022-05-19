@@ -1,0 +1,10 @@
+.profileInfo {
+  display: flex;
+  grid-gap: 10px;
+
+}
+@media (max-width: 960px) {
+  .profileInfo{
+    flex-direction: column;
+  }
+}

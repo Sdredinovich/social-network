@@ -1,0 +1,21 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+    width: 100%;
+}
+.followingDiv{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    border: 1px solid black;
+    height: 40px;
+    cursor: pointer;
+}
+.followingP{
+    margin: 0;
+}
+.followingDiv:hover{
+    background-color: rgb(211, 211, 211);
+    
+}

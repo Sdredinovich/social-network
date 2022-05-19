@@ -1,0 +1,8 @@
+.search{
+    /* border: 2px solid red; */
+}
+.searchInput{
+    width: 300px;
+    height: 25px;
+    font-size: 19px;
+}

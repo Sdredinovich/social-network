@@ -1,0 +1,64 @@
+.profilePhoto {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+
+}
+.avaBtnDiv {
+  border: 1px solid black;
+  width: 350px;
+  border-radius:  5% 5% 5% 5% ;
+  overflow: hidden;
+
+}
+.avaDiv{
+  position: relative;
+}
+.ava {
+  width: 350px;
+  display: block;
+  border-radius: 0 0 0 0;
+  cursor: pointer;
+
+}
+
+.photoInp {
+  display: none;
+}
+.inpBtn {
+  width: 100%;
+  text-align: center;
+  background-color: rgb(136, 136, 136);
+  cursor: pointer;
+  font-weight: 700;
+  margin: 0;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.increaseDiv {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  transition: opacity 0.3s;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.increaseDiv:hover {
+  opacity: 1;
+}
+.increaseImg {
+  transition: transform 0.3s;
+  width: 35px;
+}
+.increaseImg:hover {
+  transform: scale(1.5);
+}

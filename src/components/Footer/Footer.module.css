@@ -1,0 +1,37 @@
+.footer{
+    border: 1px solid black;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+
+  }
+  .authorContacts{
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      grid-gap: 10px;
+  }
+  .contsctDiv{
+      display: flex;
+      flex-direction: row;
+      grid-gap: 5px;
+  }
+  .iconImg{
+      width: 20px;
+  }
+
+  .nickName{
+      text-decoration: none;
+      color: black;
+      margin: 0;
+      
+
+    
+  }
+  .email{
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
