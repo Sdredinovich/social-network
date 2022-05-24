@@ -42,6 +42,7 @@ function App(props) {
                 <Route path="/profile/:id" element={<ProfileContainer />} />
                 <Route path="/error" element={<Error />} />
                 <Route path="/serverError" element={<ServerError />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </div>
           </div>
