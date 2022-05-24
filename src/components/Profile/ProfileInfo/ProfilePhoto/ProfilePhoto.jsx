@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import s from "./ProfilePhoto.module.css";
 import LargePhoto from "./../../../LargePhoto/LargePhoto";
-import avatar from "./../../../../photos/anonim.jpg";
+import avatar from "./../../../../photos/anonim.png";
 import lupa from "./../../../../photos/lupa.svg";
 import exit from "./../../../../photos/exit.svg";
 

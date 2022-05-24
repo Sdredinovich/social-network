@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import LargePhoto from "../LargePhoto/LargePhoto";
 import Paginator from "../Paginator/Paginator";
 import Search from "../Serach/Search";
-import anonim from "./../../photos/anonim.jpg";
+import anonim from "./../../photos/anonim.png";
 import lupa from "./../../photos/lupa.svg";
 
 import s from "./Friends.module.css";

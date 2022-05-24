@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "./LogOut.module.css";
-import anonim from "./../../../photos/anonim.jpg";
-import vpravo from "./../../../photos/vpravo.svg";
+import anonim from "./../../../photos/anonim.png";
+import vpravo from "./../../../photos/vpravo.png";
 import { NavLink } from "react-router-dom";
 
 const LogOut = (props) => {

@@ -3,6 +3,8 @@
     min-height: 100px;
     display: flex;
     flex-direction: row;
+    border: var(--border05);
+    background-color: var(--bg-color);
 
   }
   .authorContacts{
@@ -18,11 +20,12 @@
   }
   .iconImg{
       width: 20px;
-  }
+      transition: filter 0.2s;
+    }
 
   .nickName{
       text-decoration: none;
-      color: black;
+      color: var(--text-color);
       margin: 0;
       
 
@@ -34,4 +37,9 @@
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
+  }
+
+  .contsctDiv:hover > .iconImg{
+    filter: drop-shadow(0px 1px 7px rgba(255, 255, 255, 1));
+
   }

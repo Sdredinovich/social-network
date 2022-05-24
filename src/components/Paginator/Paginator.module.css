@@ -8,13 +8,23 @@
 }
 .el{
     padding: 2px;
-    border: 1px solid black;
+    border: var(--border03);
     cursor: pointer;
 }
+.el:hover{
+    background-color: var(--hover-color);
+
+}
 .active{
-    background-color: rgb(211, 211, 211);
+    background-color: var(--hover-color);
+    border: var(--border05);
+
 }
 .btn{
     cursor: pointer;
     width: 80px;
+    background-color: var(--hover-color);
+    border: 1px solid rgba(255,255,255, 0.3);
+    color: rgba(255, 255, 255, 0.5);
+
 }

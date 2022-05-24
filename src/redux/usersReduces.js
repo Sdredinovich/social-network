@@ -13,7 +13,7 @@ const initialState = {
   term: "",
   isLoading: true,
   count: 10,
-  page: 121,
+  page: 1,
   totalCount: null,
 };
 

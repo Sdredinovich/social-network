@@ -8,7 +8,7 @@ const SET_NEWS_TOTALCOUNT = "SET_NEWS_TOTALCOUNT";
 const initialState = {
   news: null,
   page: 1,
-  count: 6,
+  count: 5,
   totalCount: 0,
   loading: true,
 };

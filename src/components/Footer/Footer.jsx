@@ -1,10 +1,10 @@
 import React from "react";
 import s from "./Footer.module.css";
-import instagramImg from './../../photos/instagram_icon.svg'
-import telegramImg from './../../photos/telegram_icon.svg'
-import gmailImg from './../../photos/gmail_icon.svg'
-import githubImg from './../../photos/gitlogo_icon.svg'
-import whatsappImg from './../../photos/whatsapp_icon.svg'
+import instagramImg from './../../photos/instagram_icon.png'
+import telegramImg from './../../photos/telegram_icon.png'
+import gmailImg from './../../photos/gmail_icon.png'
+import githubImg from './../../photos/github_icon.png'
+import whatsappImg from './../../photos/whatsapp_icon.png'
 
 
 const Footer = (props) => {

@@ -4,6 +4,7 @@ import s from "./ProfileAboutUser.module.css";
 
 const ProfileAboutUser = (props) => {
   const [change, setChange] = useState(false);
+  const [openContacts, setOpenContacts] = useState(false);
   const changeClick = () => {
     setChange(!change);
   };
@@ -24,43 +25,41 @@ const ProfileAboutUser = (props) => {
             <p className={s.fullName}>{props.profile.fullName}</p>
           </div>
           <div className={`${s.statusDiv} ${s.titleDiv}`}>
-            <p className={s.status}>
-              <span>Статус:</span> {props.profile.status}
-            </p>
+            <p className={`${s.status} ${s.title}`}>Статус:</p>
+            <p>{props.profile.status}</p>
           </div>
           <div className={`${s.aboutMeDiv} ${s.titleDiv} `}>
-            <p className={s.aboutMe}>
-              <span>Обо мне:</span> {props.profile.aboutMe}
-            </p>
+            <p className={`${s.aboutMe} ${s.title}`}>Обо мне:</p>
+            <p>{props.profile.aboutMe}</p>
           </div>
           <div className={`${s.idDiv} ${s.titleDiv}`}>
-            <p className={s.id}>
-              <span>ID:</span> {props.profile.userId}
-            </p>
+            <p className={`${s.id} ${s.title}`}>
+             ID:
+            </p><p>{props.profile.userId}</p>
           </div>
           <div className={`${s.lookingForAJobDiv} ${s.titleDiv}`}>
-            <p className={s.lookingForAJob}>
-              <span>Ищу работу:</span>{" "}
-              {props.profile.lookingForAJob ? "Да" : "Нет"}
-            </p>
+            <p className={`${s.lookingForAJob } ${s.title}`}>Ищу работу:</p>
+            <p>{props.profile.lookingForAJob ? "Да" : "Нет"}</p>
           </div>
           {props.profile.lookingForAJob && (
             <div className={`${s.lookingForAJobDescriptionDiv} ${s.titleDiv}`}>
-              <p className={s.lookingForAJobDescription}>
-                <span>Желаямая профессия:</span>{" "}
-                {props.profile.lookingForAJobDescription}
-              </p>
+              <p className={`${s.lookingForAJobDescription } ${s.title}`}>
+                Профессия:
+              </p><p> {props.profile.lookingForAJobDescription}</p>
             </div>
           )}
-          <div className={`${s.contactsDiv} ${s.titleDiv}`}>
-            <p className={s.contactsP}>Контакты:</p>
-
-            {contactKeys.map(
+          <div className={`${s.contactsDiv}`}>
+          <p className={s.toggleContacts} onClick={()=>{
+            setOpenContacts(!openContacts)
+          }}>Контакты {openContacts?'⮝':'⮟'} </p>
+<div className={s.contacts}>
+            {openContacts&&contactKeys.map(
               (key) =>
                 props.profile.contacts[key] && (
                   <div key={key} className={`${s.contactDiv}`}>
                     <span className={s.contactSpan}>{key}:</span>{" "}
                     <a
+                      className={s.contactLink}
                       target={"_blank"}
                       href={`https://www.${props.profile.contacts[key]}`}
                     >
@@ -69,6 +68,7 @@ const ProfileAboutUser = (props) => {
                   </div>
                 )
             )}
+            </div>
           </div>
           {props.isAuth && props.itsMe && (
             <div onClick={changeClick} className={s.changeInfoBtnDiv}>

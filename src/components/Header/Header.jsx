@@ -1,8 +1,7 @@
 import s from "./Header.module.css";
 import React, { useState } from "react";
-import Search from "../Serach/Search";
-import popup from "../../photos/popup.svg";
-import home from "../../photos/home.svg";
+import popup from "../../photos/popup.png";
+import home from "../../photos/home.png";
 import { NavLink } from "react-router-dom";
 import  LogOut  from "./LogOut/LogOut";
 import HeaderNavbar from "./HeaderNavbar";
@@ -15,9 +14,12 @@ const Header = (props) => {
       <div className={s.popupDiv}>
         <div onClick={()=>{
           setActive(!active)
-        }} className={`${s.popupDiv2} ${active&&s.navbarActive}`}>
+        }} className={`${s.popupDiv2} ${active&&props.isAuth&&s.navbarActive} ${active&&!props.isAuth&&s.navbarActive2}`}>
         <img className={s.popupImg} src={popup} />
-<HeaderNavbar/>
+<HeaderNavbar 
+      isAuth={props.isAuth}
+
+/>
         </div>
       </div>
       <div className={s.logoAndSearch}>

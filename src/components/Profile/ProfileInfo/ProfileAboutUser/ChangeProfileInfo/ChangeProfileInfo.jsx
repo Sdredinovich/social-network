@@ -11,7 +11,7 @@ const ChangeProfileInfo = (props) => {
     lookingForAJobDescription: props.profile.lookingForAJobDescription,
     contacts: props.profile.contacts,
   });
-
+const [openContacts, setOpenContacts] = useState(false)
   const [error, setError] = useState({
     fullName: "",
     userId: "",
@@ -121,69 +121,99 @@ const ChangeProfileInfo = (props) => {
     <div className={s.changeProfileInfo}>
       <form className={s.form}>
         <div className={`${s.fullNameInpDiv} ${s.inpDiv}`}>
-          <p> Полное имя: </p>
-          <input
-            placeholder="Полное имя"
-            onChange={changeHandler}
-            onBlur={blurHandler}
-            name={"fullName"}
-            className={s.fullNameInput}
-            value={value.fullName}
-          />
+          <div className={s.inputAndTitle}>
+            <p> Полное имя: </p>
+            <input
+              placeholder="Полное имя"
+              onChange={changeHandler}
+              onBlur={blurHandler}
+              name={"fullName"}
+              className={s.fullNameInput}
+              value={value.fullName}
+            />
+          </div>
           {error.fullName && <p className={s.errorP}>{error.fullName}</p>}
         </div>
         <div className={`${s.aboutMeDiv} ${s.inpDiv}`}>
-          <p> Обо мне: </p>
-          <input
-            placeholder="Обо мне"
-            onChange={changeHandler}
-            onBlur={blurHandler}
-            name={"aboutMe"}
-            className={s.aboutMeInput}
-            value={value.aboutMe}
-          />
+          <div className={s.inputAndTitle}>
+            <p> Обо мне: </p>
+            <input
+              placeholder="Обо мне"
+              onChange={changeHandler}
+              onBlur={blurHandler}
+              name={"aboutMe"}
+              className={s.aboutMeInput}
+              value={value.aboutMe}
+            />
+          </div>
         </div>
         <div className={`${s.idDiv} ${s.inpDiv}`}>
-          <p> Пользовательский ID: </p>
-          <input
-            placeholder="Пользовательский ID"
-            onBlur={blurHandler}
-            onChange={changeHandler}
-            name={"userId"}
-            type={"number"}
-            className={s.idInput}
-            value={value.userId}
-            readOnly={true}
-          />
+          <div className={s.inputAndTitle}>
+            <p> ID: </p>
+            <input
+              placeholder="Пользовательский ID"
+              onBlur={blurHandler}
+              onChange={changeHandler}
+              name={"userId"}
+              type={"number"}
+              className={s.idInput}
+              value={value.userId}
+              readOnly={true}
+            />
+          </div>
           {error.userId && <p className={s.errorP}>{error.userId}</p>}
         </div>
         <div className={`${s.lookingForAJobDiv} ${s.inpDiv}`}>
-          <div className={s.lookingForAJobDiv2}>
+          <div className={s.inputAndTitle}>
             <p> Ищу работу: </p>
             <input
               onChange={changeHandler}
               name={"lookingForAJob"}
+              id={'lookingForAJob'}
               type={"checkbox"}
               className={s.lookingForAJobInput}
               checked={value.lookingForAJob}
             />
+            
+            <div className={s.fakeCheckedDiv}>
+              {" "}
+              <label for={'lookingForAJob'}
+                className={`${s.lookingForAJobInpP} ${
+                  value.lookingForAJob && s.active
+                }`}
+              >
+                Да
+              </label>
+              <label for={'lookingForAJob'}
+                className={`${s.lookingForAJobInpP} ${
+                  !value.lookingForAJob && s.active
+                }`}
+              >
+                Нет
+              </label>
+            </div>
           </div>
         </div>
         {value.lookingForAJob && (
           <div className={`${s.lookingForAJobDescriptionDiv} ${s.inpDiv}`}>
-            <p>Желаемая профессия:</p>
-            <input
-              placeholder="Желаемая профессия"
-              onChange={changeHandler}
-              onBlur={blurHandler}
-              name={"lookingForAJobDescription"}
-              className={s.lookingForAJobDescription}
-              value={value.lookingForAJobDescription}
-            />
+            <div className={s.inputAndTitle}>
+              <p>Профессия:</p>
+              <input
+                placeholder="Желаемая профессия"
+                onChange={changeHandler}
+                onBlur={blurHandler}
+                name={"lookingForAJobDescription"}
+                className={s.lookingForAJobDescription}
+                value={value.lookingForAJobDescription}
+              />
+            </div>
           </div>
         )}
         <div className={`${s.contactsDiv} ${s.inpDiv}`}>
-          <p>Контакты:</p>
+          <p className={s.toggleContacts} onClick={()=>{
+            setOpenContacts(!openContacts)
+          }}>Контакты {openContacts?'⮝':'⮟'} </p>
+{openContacts&&          <div className={s.contacts}>
           {contactKeys.map((key) => {
             return (
               <div key={key} className={s.contactDiv}>
@@ -196,6 +226,7 @@ const ChangeProfileInfo = (props) => {
               </div>
             );
           })}
+          </div>}
         </div>
         <button
           onClick={saveProfile}

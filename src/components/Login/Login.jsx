@@ -100,7 +100,7 @@ const Login = (props) => {
               placeholder="Введите логин"
               className={`${s.inp} ${dirty.email && error.email && s.errorRed}`}
             />
-            {dirty.email && error.dirty && (
+            {dirty.email && error.email && (
               <p className={s.passwordTitle}>{error.email}</p>
             )}
           </div>

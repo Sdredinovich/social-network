@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import s from "./Users.module.css";
-import anonim from "./../../photos/anonim.jpg";
+import anonim from "./../../photos/anonim.png";
 import Paginator from "../Paginator/Paginator";
 import Search from "../Serach/Search";
 import { NavLink } from "react-router-dom";

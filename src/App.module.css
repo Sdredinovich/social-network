@@ -12,16 +12,23 @@
   /* border: 1px solid black; */
   padding: 2px;
   padding-top: 60px;
+  color: rgba(255, 255, 255, 0.5);
+  caret-color: white;
+
+
 
 }
+
 .content {
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
-  border: 1px solid black;
   min-height:  calc(100vh - 200px);
   padding: 5px;
   width: 770px;
+  border: var(--border05);
+  border-radius: 10px;
+  background-color: var(--bg-color);
   
 }
 .navAndContentDiv{

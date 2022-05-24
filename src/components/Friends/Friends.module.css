@@ -14,9 +14,14 @@
   flex-direction: row;
   justify-content: space-between;
   padding-right: 10px;
+  background-color: rgb(23, 23, 23);
+  border: var(--border03);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s;
 }
 .friend:hover {
-  background-color: rgb(233, 233, 233);
+  background-color: var(--hover-color);
 }
 .friendAva {
   width: 50px;
@@ -59,7 +64,7 @@
 }
 .friendLink {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
 }
 
 .friendLink:hover .friendName {
@@ -71,7 +76,7 @@
 }
 
 .followBtnDiv:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .imgOpenbtn {

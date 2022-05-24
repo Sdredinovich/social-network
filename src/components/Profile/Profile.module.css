@@ -11,11 +11,13 @@
     border: 1px solid black;
     height: 40px;
     cursor: pointer;
+    border: var(--border03);
+    transition: background-color 0.2s;
 }
 .followingP{
     margin: 0;
 }
 .followingDiv:hover{
-    background-color: rgb(211, 211, 211);
+    background-color: var(--hover-color);
     
 }
