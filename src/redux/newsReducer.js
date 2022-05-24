@@ -19,16 +19,16 @@ const newsReducer = (state = initialState, action) => {
         ...state,
         news: { ...action.value },
       };
-      case SET_NEWS_TOTALCOUNT:
-        return {
-          ...state,
-          totalCount: action.value,
-        };
-        case SET_NEWS_PAGE:
-          return {
-            ...state,
-            page: action.value,
-          };
+    case SET_NEWS_TOTALCOUNT:
+      return {
+        ...state,
+        totalCount: action.value,
+      };
+    case SET_NEWS_PAGE:
+      return {
+        ...state,
+        page: action.value,
+      };
     case SET_LOADING:
       return {
         ...state,
@@ -45,10 +45,10 @@ const setNewsTotalCount = (value) => ({ type: SET_NEWS_TOTALCOUNT, value });
 export const setNewsPage = (value) => ({ type: SET_NEWS_PAGE, value });
 
 export const getNews = (page, pageSize) => async (dispatch) => {
- const newsData = await newsApi.getNews(page, pageSize)
- dispatch(setNewsAC(newsData.data.articles))
- dispatch(setNewsTotalCount(newsData.data.totalResults))
- dispatch(setNewsLoadingAC(false))
+  const newsData = await newsApi.getNews(page, pageSize);
+  dispatch(setNewsAC(newsData.data.articles));
+  dispatch(setNewsTotalCount(newsData.data.totalResults));
+  dispatch(setNewsLoadingAC(false));
 };
 
 export default newsReducer;
