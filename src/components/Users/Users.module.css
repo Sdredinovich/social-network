@@ -48,14 +48,17 @@
   flex-direction: row;
   align-items: center;
   grid-gap: 5px;
+
 }
 .userNameDiv {
   display: flex;
   flex-direction: column;
   
+  
 }
 .userName {
   font-weight: 600;
+  
 }
 .userStatus {
   overflow: hidden;
@@ -76,7 +79,9 @@
 
 .followBtnDiv {
   font-weight: 700;
+
 }
+
 
 .followBtnDiv:hover {
   /* transform: scale(1.1); */
@@ -108,5 +113,21 @@
 @media (max-width: 960px) {
   .userStatus{
     width: 400px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .userStatus{
+    width: 200px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .userStatus{
+    width: 100px;
+  }
+  .followBtnP{
+    font-size: 12px;
+  
   }
 }

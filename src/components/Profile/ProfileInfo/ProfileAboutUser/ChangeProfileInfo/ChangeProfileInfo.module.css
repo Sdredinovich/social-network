@@ -1,6 +1,5 @@
 .changeProfileInfo {
   width: 370px;
-
   padding: 5px;
 }
 .form {
@@ -98,15 +97,15 @@ border: var(--border03);
   width: 100px;
 }
 .errorP{
-  color: red;
   margin: 0;
   padding: 0;
 }
 
 
 .inputAndTitle > p{
-  width: 270px;
+  width: 200px;
   margin: 0;
+
 
 }
 .inputAndTitle{
@@ -120,7 +119,6 @@ border: var(--border03);
 .lookingForAJobInput {
   background-color: white;
   display: none;
-border: 2px solid red;
 
 }
 .toggleContacts{
@@ -149,4 +147,25 @@ border: 2px solid red;
 .active{
   background-color: var(--hover-color);
 
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .changeProfileInfo {
+    width: auto;
+  }
+  .inputAndTitle{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+
+  }
+  .inputAndTitle input {
+    margin: 0;
+
+  }
 }

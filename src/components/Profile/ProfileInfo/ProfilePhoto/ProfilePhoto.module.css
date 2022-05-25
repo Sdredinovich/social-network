@@ -64,3 +64,17 @@ transition: filter 0.2s;
 .increaseImg:hover {
   transform: scale(1.5);
 }
+@media screen and (max-width: 400px) {
+  .ava{
+    width: 100%;
+  }
+  .avaBtnDiv{
+    width: 100%;
+
+
+  }
+  .increaseDiv {
+    width: 100%;
+
+  }
+}

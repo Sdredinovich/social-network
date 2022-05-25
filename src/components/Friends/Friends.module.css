@@ -107,3 +107,21 @@
     width: 400px;
   }
 }
+
+
+
+
+@media (max-width: 600px) {
+  .friendStatus{
+    width: 200px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .friendStatus{
+    width: 100px;
+  }
+  .followBtnP{
+    font-size: 12px;
+  
+  }
+}

@@ -177,14 +177,14 @@ const [openContacts, setOpenContacts] = useState(false)
             
             <div className={s.fakeCheckedDiv}>
               {" "}
-              <label for={'lookingForAJob'}
+              <label htmlFor={'lookingForAJob'}
                 className={`${s.lookingForAJobInpP} ${
                   value.lookingForAJob && s.active
                 }`}
               >
                 Да
               </label>
-              <label for={'lookingForAJob'}
+              <label htmlFor={'lookingForAJob'}
                 className={`${s.lookingForAJobInpP} ${
                   !value.lookingForAJob && s.active
                 }`}

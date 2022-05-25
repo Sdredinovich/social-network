@@ -20,6 +20,7 @@ const ProfileAboutUser = (props) => {
           profile={props.profile}
         />
       ) : (
+
         <div className={s.seePrefileInfo}>
           <div className={`${s.fullNameDiv} ${s.titleDiv}`}>
             <p className={s.fullName}>{props.profile.fullName}</p>
@@ -29,7 +30,7 @@ const ProfileAboutUser = (props) => {
             <p>{props.profile.status}</p>
           </div>
           <div className={`${s.aboutMeDiv} ${s.titleDiv} `}>
-            <p className={`${s.aboutMe} ${s.title}`}>Обо мне:</p>
+            <span className={`${s.aboutMe} ${s.title}`}>Обо мне:</span>
             <p>{props.profile.aboutMe}</p>
           </div>
           <div className={`${s.idDiv} ${s.titleDiv}`}>
@@ -76,6 +77,14 @@ const ProfileAboutUser = (props) => {
             </div>
           )}
         </div>
+
+
+
+
+
+
+
+
       )}
     </div>
   );

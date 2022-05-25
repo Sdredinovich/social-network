@@ -1,10 +1,14 @@
 .profileAboutUser {
   position: relative;
+  width: auto;
   border-radius: 5px;
   border: 2px solid black;
   padding: 5px;
+  overflow: hidden;
+  white-space: wrap;
   word-wrap: break-word;
-  font-size: 18px;
+    font-size: 18px;
+
 
 }
 .fullNameDiv {
@@ -43,10 +47,7 @@
   margin: 0;
 }
 .seePrefileInfo{
-  width: 370px;
   padding: 5px;
-
-
 }
 .contactsDiv {
   font-size: 20px;
@@ -72,7 +73,6 @@
   overflow: hidden;
   white-space: wrap;
   word-wrap: break-word;
-
 }
 .titleDiv{
   width: 100%;
@@ -101,12 +101,28 @@
 }
 .title{
   min-width: 140px;
-
+  
+}
+.fullName{
+  overflow: hidden;
 }
 .titleDiv > p{
   margin: 0;
   overflow: hidden;
   white-space: wrap;
   word-wrap: break-word;
+
 }
 
+
+@media screen and (max-width: 600px) {
+  .seePrefileInfo{
+    width: auto;
+
+  }
+  .titleDiv{
+    width: auto;
+
+  
+  }
+}
