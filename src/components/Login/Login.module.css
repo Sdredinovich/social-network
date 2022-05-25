@@ -43,7 +43,7 @@ border-radius: 5px;
 .inpDiv {
   position: relative;
 }
-.errorLoginP {
+.errorP {
   width: 25px;
   font-weight: 700;
   text-align: center;
@@ -53,18 +53,7 @@ border-radius: 5px;
   position: absolute;
   left: -10px;
   font-size: 20px;
-}
-
-.errorPasswordP {
-  width: 25px;
-  font-weight: 700;
-  text-align: center;
-  border-radius: 50%;
-  border: 2px solid red;
-  color: red;
-  position: absolute;
-  left: -10px;
-  font-size: 20px;
+  cursor: pointer;
 }
 
 

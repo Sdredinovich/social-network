@@ -28,22 +28,22 @@ const [openContacts, setOpenContacts] = useState(false)
     switch (e.target.name) {
       case "fullName":
         if (e.target.value.length < 1) {
-          setError({ ...error, fullName: "Это поле не может быть пустым" });
+          setError({ ...error, fullName: "Обязательное поле" });
         } else {
           setError({ ...error, fullName: "" });
         }
         setValue({ ...value, [e.target.name]: e.target.value });
 
         break;
-      case "userId":
-        if (e.target.value.length < 1) {
-          setError({ ...error, userId: "Это поле не может быть пустым" });
-        } else {
-          setError({ ...error, userId: "" });
-        }
-        setValue({ ...value, [e.target.name]: e.target.value });
-
-        break;
+        case "aboutMe":
+          if (e.target.value.length < 1) {
+            setError({ ...error, aboutMe: "Обязательное поле" });
+          } else {
+            setError({ ...error, aboutMe: "" });
+          }
+          setValue({ ...value, [e.target.name]: e.target.value });
+  
+          break;
       case "lookingForAJob": {
         setValue({ ...value, [e.target.name]: e.target.checked });
         break;
@@ -123,16 +123,20 @@ const [openContacts, setOpenContacts] = useState(false)
         <div className={`${s.fullNameInpDiv} ${s.inpDiv}`}>
           <div className={s.inputAndTitle}>
             <p> Полное имя: </p>
+           
             <input
               placeholder="Полное имя"
               onChange={changeHandler}
               onBlur={blurHandler}
               name={"fullName"}
-              className={s.fullNameInput}
+              className={`${s.fullNameInput} `}
+              id={`${error.fullName&&s.errorInp}`}
               value={value.fullName}
+              title='Обязательное поле'
+
             />
+          
           </div>
-          {error.fullName && <p className={s.errorP}>{error.fullName}</p>}
         </div>
         <div className={`${s.aboutMeDiv} ${s.inpDiv}`}>
           <div className={s.inputAndTitle}>
@@ -142,27 +146,16 @@ const [openContacts, setOpenContacts] = useState(false)
               onChange={changeHandler}
               onBlur={blurHandler}
               name={"aboutMe"}
-              className={s.aboutMeInput}
+              className={`${s.aboutMeInput} ${error.aboutMe && s.errorInp}`}
               value={value.aboutMe}
+              id={`${error.aboutMe&&s.errorInp}`}
+              title='Обязательное поле'
             />
+
           </div>
+
         </div>
-        <div className={`${s.idDiv} ${s.inpDiv}`}>
-          <div className={s.inputAndTitle}>
-            <p> ID: </p>
-            <input
-              placeholder="Пользовательский ID"
-              onBlur={blurHandler}
-              onChange={changeHandler}
-              name={"userId"}
-              type={"number"}
-              className={s.idInput}
-              value={value.userId}
-              readOnly={true}
-            />
-          </div>
-          {error.userId && <p className={s.errorP}>{error.userId}</p>}
-        </div>
+
         <div className={`${s.lookingForAJobDiv} ${s.inpDiv}`}>
           <div className={s.inputAndTitle}>
             <p> Ищу работу: </p>
@@ -230,7 +223,7 @@ const [openContacts, setOpenContacts] = useState(false)
         </div>
         <button
           onClick={saveProfile}
-          disabled={error.fullName || error.userId}
+          disabled={error.fullName || error.aboutMe}
           className={s.changeInfoBtn}
         >
           <p className={s.changeInfoBtnP}>Сохранить изменения</p>

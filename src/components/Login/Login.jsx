@@ -90,7 +90,7 @@ const Login = (props) => {
         <form className={s.loginForm}>
           <h2>АВТОРИЗАЦИЯ</h2>
           <div className={s.inpDiv}>
-            {dirty.email && error.email && <p className={s.errorLoginP}>!</p>}
+            {dirty.email && error.email && <p title={error.email} className={s.errorP}>!</p>}
 
             <input
               onChange={(e) => inpHundler(e)}
@@ -100,13 +100,11 @@ const Login = (props) => {
               placeholder="Введите логин"
               className={`${s.inp} ${dirty.email && error.email && s.errorRed}`}
             />
-            {dirty.email && error.email && (
-              <p className={s.passwordTitle}>{error.email}</p>
-            )}
+
           </div>
           <div className={s.inpDiv}>
             {dirty.password && error.password && (
-              <p className={s.errorPasswordP}>!</p>
+              <p title={error.password} className={s.errorP}>!</p>
             )}
             <input
               onChange={(e) => inpHundler(e)}
@@ -118,9 +116,7 @@ const Login = (props) => {
                 dirty.password && error.password && s.errorRed
               }`}
             />
-            {dirty.password && error.password && (
-              <p className={s.passwordTitle}>{error.password}</p>
-            )}
+      
 
 <div className={s.rememberMeDiv}>
             <span>Запомнить меня</span>{" "}
@@ -134,8 +130,8 @@ const Login = (props) => {
               className={`${s.inp} ${s.checkbox }`}
             />
             <div className={s.checkboxToggle}>
-<label for='rememberMe' className={`${s.checkboxP} ${value.rememberMe&&s.active}`}>Да</label>
-<label for='rememberMe' className={`${s.checkboxP} ${!value.rememberMe&&s.active}`}>Нет</label>
+<label htmlFor='rememberMe' className={`${s.checkboxP} ${value.rememberMe&&s.active}`}>Да</label>
+<label htmlFor='rememberMe' className={`${s.checkboxP} ${!value.rememberMe&&s.active}`}>Нет</label>
 </div>
 </div>
 
