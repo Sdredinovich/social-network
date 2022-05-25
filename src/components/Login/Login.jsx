@@ -130,8 +130,13 @@ const Login = (props) => {
               value={value.rememberMe}
               onBlur={(e) => blurHandler(e)}
               name="rememberMe"
+              id="rememberMe"
               className={`${s.inp} ${s.checkbox }`}
             />
+            <div className={s.checkboxToggle}>
+<label for='rememberMe' className={`${s.checkboxP} ${value.rememberMe&&s.active}`}>Да</label>
+<label for='rememberMe' className={`${s.checkboxP} ${!value.rememberMe&&s.active}`}>Нет</label>
+</div>
 </div>
 
 
