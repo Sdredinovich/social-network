@@ -1,11 +1,12 @@
 .navbar {
   grid-area: navbar;
   padding: 10px;
-  width: 180px;
+  min-width: 180px;
   border: var(--border05);
   border-radius: 10px;
   background-color: var(--bg-color);
-
+  overflow: hidden;
+  white-space: nowrap;
   
 }
 

@@ -1,5 +1,6 @@
 .changeProfileInfo {
-  width: 370px;
+  width: auto;
+  max-width: 370px;
   padding: 5px;
 }
 .form {
@@ -103,7 +104,7 @@ border: var(--border03);
 
 
 .inputAndTitle > p{
-  width: 200px;
+  width: 150px;
   margin: 0;
 
 
