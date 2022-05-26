@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import s from "./ChangeProfileInfo.module.css";
+import vverh from './../../../../../photos/vverh.png'
+import vniz from './../../../../../photos/vniz.png'
 
 const ChangeProfileInfo = (props) => {
   const contactKeys = Object.keys(props.profile.contacts);
@@ -205,7 +207,7 @@ const [openContacts, setOpenContacts] = useState(false)
         <div className={`${s.contactsDiv} ${s.inpDiv}`}>
           <p className={s.toggleContacts} onClick={()=>{
             setOpenContacts(!openContacts)
-          }}>Контакты {openContacts?'⮝':'⮟'} </p>
+          }}>Контакты <img className={s.contactToggleImg} src={openContacts?vverh:vniz}/> </p>
 {openContacts&&          <div className={s.contacts}>
           {contactKeys.map((key) => {
             return (

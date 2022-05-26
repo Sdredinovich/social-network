@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ChangeProfileInfo from "./ChangeProfileInfo/ChangeProfileInfo";
 import s from "./ProfileAboutUser.module.css";
+import vverh from './../../../../photos/vverh.png'
+import vniz from './../../../../photos/vniz.png'
 
 const ProfileAboutUser = (props) => {
   const [change, setChange] = useState(false);
@@ -52,7 +54,7 @@ const ProfileAboutUser = (props) => {
           <div className={`${s.contactsDiv}`}>
           <p className={s.toggleContacts} onClick={()=>{
             setOpenContacts(!openContacts)
-          }}>Контакты {openContacts?'⮝':'⮟'} </p>
+          }}>Контакты <img className={s.contactToggleImg} src={openContacts?vverh:vniz}/> </p>
 <div className={s.contacts}>
             {openContacts&&contactKeys.map(
               (key) =>
