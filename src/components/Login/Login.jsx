@@ -88,7 +88,10 @@ const Login = (props) => {
     <div className={s.login}>
       <div className={s.loginDiv}>
         <form className={s.loginForm}>
-          <h2>АВТОРИЗАЦИЯ</h2>
+          <h2 className={s.title}>АВТОРИЗАЦИЯ</h2>
+          <span>Пробный аккаунт</span><br/>
+          <span>Логин: free@samuraijs.com</span><br/>
+          <span>Пароль: free</span><br/>
           <div className={s.inpDiv}>
             {dirty.email && error.email && <p title={error.email} className={s.errorP}>!</p>}
 
