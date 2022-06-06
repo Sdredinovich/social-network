@@ -37,6 +37,8 @@ const Friends = (props) => {
   useEffect(() => {
     return () => {
       dispatch(setFriendsLoadingAC(true))
+    dispatch(setFriendsTermAC(''))
+
     };
   }, []);
 

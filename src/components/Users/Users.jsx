@@ -21,6 +21,7 @@ const isLoading = useSelector(state => state.usersPage.isLoading)
 useEffect(() => {
   return () => {
     dispatch(setUsersLoadingAC(true))
+    dispatch(setUsersTermAC(''))
   };
 }, []);
 
