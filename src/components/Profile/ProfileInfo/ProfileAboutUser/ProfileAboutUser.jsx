@@ -17,7 +17,6 @@ const ProfileAboutUser = (props) => {
     <div className={s.profileAboutUser}>
       {change ? (
         <ChangeProfileInfo
-          putProfile={props.putProfile}
           changeClick={changeClick}
           profile={props.profile}
         />

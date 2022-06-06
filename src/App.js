@@ -5,14 +5,14 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import s from "./App.module.css";
 import Error from "./components/Error/Error";
 import Footer from "./components/Footer/Footer";
-import FriendsContainer from "./components/Friends/FriendsContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginContainer from "./components/Login/LoginContainer";
+import Friends from "./components/Friends/Friends";
+import Header from "./components/Header/Header";
+import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import NewsContainer from "./components/News/NewsContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+import Profile from "./components/Profile/Profile";
 import ServerError from "./components/ServerError/ServerError";
-import UsersContainer from "./components/Users/UsersContainer";
+import Users from "./components/Users/Users";
 import { initialMe } from "./redux/authReducer";
 
 function App(props) {
@@ -28,18 +28,18 @@ function App(props) {
         </div>
       ) : (
         <div className={s.app}>
-          <HeaderContainer />
+          <Header />
           <div className={s.navAndContentDiv}>
             <Navbar isAuth={props.isAuth} />
             <div className={s.content}>
               <Routes>
-                <Route path="/users" element={<UsersContainer />} />
-                <Route path="/friends" element={<FriendsContainer />} />
-                <Route path="/login" element={<LoginContainer />} />
-                <Route path="/" element={<ProfileContainer />} />
+                <Route path="/users" element={<Users />} />
+                <Route path="/friends" element={<Friends />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Profile />} />
                 <Route path="/news" element={<NewsContainer />} />
-                <Route path="/profile/" element={<ProfileContainer />} />
-                <Route path="/profile/:id" element={<ProfileContainer />} />
+                <Route path="/profile/" element={<Profile />} />
+                <Route path="/profile/:id" element={<Profile />} />
                 <Route path="/error" element={<Error />} />
                 <Route path="/serverError" element={<ServerError />} />
                 <Route path="*" element={<Navigate to="/" replace />} />

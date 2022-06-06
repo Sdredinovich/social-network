@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import s from './Paginator.module.css'
 
 const Paginator = ({setPage, totalCount, count=10, page})=>{
+    const dispatch = useDispatch()
     const paginatorAll = []
     const pageCount = Math.ceil(totalCount/count)
 
@@ -31,7 +33,7 @@ const rightPortionSize = portionNumber * 10
         {paginatorAll.length>1&&paginatorAll.map(el=>{
             if(el>=leftPortionSize&&el<=rightPortionSize){
                 return <span key={el} onClick={()=>{
-                    setPage(el)
+                    dispatch(setPage(el))
                 }} className={`${s.el} ${page===el&&s.active}`}>{el}</span>
             }
         })}

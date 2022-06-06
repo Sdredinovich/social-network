@@ -4,8 +4,11 @@ import LargePhoto from "./../../../LargePhoto/LargePhoto";
 import avatar from "./../../../../photos/anonim.png";
 import lupa from "./../../../../photos/lupa.svg";
 import exit from "./../../../../photos/exit.svg";
+import { useDispatch } from "react-redux";
+import { putProfilePhoto } from "../../../../redux/profileReducer";
 
 const ProfilePhoto = (props) => {
+  const dispatch = useDispatch()
   const [openPhoto, setOpenPhoto] = useState(false);
   const inpRef = useRef(null);
   const inpClick = () => {
@@ -14,7 +17,7 @@ const ProfilePhoto = (props) => {
 
   const changedPhoto = (e) => {
     if (e.target.files.length) {
-      props.putProfilePhoto(e.target.files[0]);
+      dispatch(putProfilePhoto(e.target.files[0]))
     }
   };
   return (

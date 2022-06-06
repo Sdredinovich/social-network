@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import s from "./Search.module.css";
 
 let timerID = null;
 
 const Search = (props) => {
+  const dispatch = useDispatch()
   const [state, setState] = useState("");
   useEffect(() => {
     return () => {
@@ -18,7 +20,7 @@ const Search = (props) => {
     }
     timerID = setTimeout(() => {
       timerID = null;
-      props.setTerm(e.target.value);
+      dispatch(props.setTerm(e.target.value))
     }, 1000);
   };
   return (

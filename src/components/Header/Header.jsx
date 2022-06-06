@@ -5,8 +5,11 @@ import home from "../../photos/home.png";
 import { NavLink } from "react-router-dom";
 import  LogOut  from "./LogOut/LogOut";
 import HeaderNavbar from "./HeaderNavbar";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
+
+  const isAuth = useSelector(state => state.authPage.isAuth)
 
   const [active, setActive] = useState(false)
   return (
@@ -14,10 +17,10 @@ const Header = (props) => {
       <div className={s.popupDiv}>
         <div onClick={()=>{
           setActive(!active)
-        }} className={`${s.popupDiv2} ${active&&props.isAuth&&s.navbarActive} ${active&&!props.isAuth&&s.navbarActive2}`}>
+        }} className={`${s.popupDiv2} ${active&&isAuth&&s.navbarActive} ${active&&!isAuth&&s.navbarActive2}`}>
         <img className={s.popupImg} src={popup} />
 <HeaderNavbar 
-      isAuth={props.isAuth}
+      isAuth={isAuth}
 
 />
         </div>
@@ -27,8 +30,8 @@ const Header = (props) => {
           <img className={s.homeImg} src={home} />
         </NavLink>
       </div>
-      {props.isAuth ? (
-        <LogOut email={props.email} login={props.login} fullName={props.myProfile.fullName} photo={props.myProfile.photos.large} logOut={props.logOut} />
+      {isAuth ? (
+        <LogOut  />
       ) : (
         <div className={s.loginDiv}>
           <NavLink className={s.loginNav} to={"/login"}>

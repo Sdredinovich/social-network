@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import s from "./ChangeProfileInfo.module.css";
 import vverh from './../../../../../photos/vverh.png'
 import vniz from './../../../../../photos/vniz.png'
+import { useDispatch } from "react-redux";
+import { putProfile } from "../../../../../redux/profileReducer";
 
 const ChangeProfileInfo = (props) => {
+  const dispatch = useDispatch()
   const contactKeys = Object.keys(props.profile.contacts);
   const [value, setValue] = useState({
     fullName: props.profile.fullName,
@@ -114,7 +117,7 @@ const [openContacts, setOpenContacts] = useState(false)
 
   const saveProfile = (e) => {
     e.preventDefault();
-    props.putProfile(value).then((res) => {
+    dispatch(putProfile(value)).then((res) => {
       props.changeClick();
     });
   };

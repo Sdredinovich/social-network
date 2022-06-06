@@ -51,18 +51,20 @@ const setInitAC = () => ({ type: SET_INIT });
 
 
 export const login = (data) => async (dispatch) => {
-  const res = await authApi.login(data);
+   const res = await authApi.login(data);
   switch (res.data.resultCode) {
     case 0:
       const auth = await authApi.authMe();
       const profile = await profileApi.getProfile(auth.data.id);
       dispatch(setMyProfile(profile.data));
       !auth.resultCode && dispatch(setAuthDataAC({ ...auth.data }));
+      return res.data.resultCode;
     case 1:
       return res.data.resultCode;
     case 10:
       dispatch(setCaptchaAC(res.captcha));
   }
+
 };
 
 export const logOut = () => async (dispatch) => {

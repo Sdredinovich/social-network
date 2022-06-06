@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router";
+import { login } from "../../redux/authReducer";
 import s from "./Login.module.css";
 
 const Login = (props) => {
+  const dispatch = useDispatch()
+  const isAuth = useSelector(state=>state.authPage.isAuth)
   const [value, setValue] = useState({
     email: "",
     password: "",
@@ -54,7 +58,6 @@ const Login = (props) => {
         }
         break;
         case "rememberMe":
-          console.log(value);
           setValue({ ...value, rememberMe: e.target.checked });
           break;
       
@@ -71,17 +74,17 @@ const Login = (props) => {
         setDirty({ ...dirty, password: true });
         break;
     }
-  };
-  const loginSubmit = (e) => {
+  }
+  
+  const loginSubmit = async (e) => {
     e.preventDefault();
-    props.login(value).then((res) => {
-      if (res === 1) {
-        setServerError("Неверный пароль или логин");
-      }
-    });
-  };
+    const res = await dispatch(login(value))
+    if (res === 1) {
+      setServerError("Неверный пароль или логин");
+    }
+   };
 
-  if (props.isAuth) {
+  if (isAuth) {
     return <Navigate to={"/profile"} />;
   }
   return (

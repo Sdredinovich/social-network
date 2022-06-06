@@ -1,33 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useParams } from "react-router";
+import { getFollowProfile, getProfile, getUnFollowProfile, setProfilLoadingAC } from "../../redux/profileReducer";
 import s from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
+  const dispatch = useDispatch()
+  const myId = useSelector(state=>state.authPage.authData.id)
+  const isAuth = useSelector(state=>state.authPage.isAuth)
+  const isLoading = useSelector(state=>state.profilePage.isProfileLoading)
+  const profile = useSelector(state=>state.profilePage.profile)
+
+  const { id } = useParams();
+  const userId = id || myId;
+  const itsMe = isAuth && userId == myId;
+  const following = (value, id)=>{
+    value?dispatch(getUnFollowProfile(id)):dispatch(getFollowProfile(id))
+  }
+
+  useEffect(() => {
+    return () => {
+      dispatch(setProfilLoadingAC(true))
+    };
+  }, [userId]);
+  useEffect(() => {
+    userId && dispatch(getProfile(userId, isAuth))
+  }, [userId]);
+
+  if (!isAuth && !id) {
+    return <Navigate to={"/login"} />;
+  }
   return (
     <>
-      {props.isLoading ? (
+      {isLoading ? (
         <h1>ЗАГРУЗКА...</h1>
       ) : (
         <div className={s.profile}>
           <ProfileInfo
-    isAuth={props.isAuth}
-
-      putProfile={props.putProfile}
-            putProfilePhoto={props.putProfilePhoto}
-            itsMe={props.itsMe}
-            profile={props.profile}
+            isAuth={isAuth}
+            itsMe={itsMe}
+            profile={profile}
           />
-          {!props.itsMe && props.isAuth && (
+          {!itsMe && isAuth && (
             <div
               className={s.followingDiv}
               onClick={() => {
-                props.profile.followed
-                  ? props.getUnFollowProfile(props.profile.userId)
-                  : props.getFollowProfile(props.profile.userId);
+                following(profile.followed, profile.userId)
               }}
             >
               <p className={s.followingP}>
-                {props.profile.followed ? "Отписаться" : "Подписаться"}
+                {profile.followed ? "Отписаться" : "Подписаться"}
               </p>
             </div>
           )}

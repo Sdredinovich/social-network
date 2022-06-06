@@ -8,7 +8,6 @@ const ProfileInfo = (props) => {
     <div className={s.profileInfo}>
       <ProfilePhoto
         fullName={props.profile.fullName}
-        putProfilePhoto={props.putProfilePhoto}
         itsMe={props.itsMe}
         photo={props.profile.photos.large}
       />
@@ -16,7 +15,6 @@ const ProfileInfo = (props) => {
       <ProfileAboutUser
         isAuth={props.isAuth}
         itsMe={props.itsMe}
-        putProfile={props.putProfile}
         profile={props.profile}
       />
     </div>
