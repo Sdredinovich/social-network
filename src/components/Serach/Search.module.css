@@ -3,8 +3,8 @@
 }
 .searchInput{
     width: 300px;
-    height: 25px;
-    font-size: 19px;
+    height: 35px;
+    font-size: 21px;
     background-color: var(--bg-color);
     border: 1px solid rgba(255,255,255, 0.3);
     color: var(--text-color);

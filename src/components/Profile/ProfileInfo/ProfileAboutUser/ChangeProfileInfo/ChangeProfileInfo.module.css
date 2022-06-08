@@ -84,7 +84,7 @@ border: var(--border03);
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  grid-gap: 10px;
+  gap: 10px;
 }
 .contactsDiv  input {
   width: 90%;
@@ -97,7 +97,7 @@ border: var(--border03);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  grid-gap: 10px;
+  gap: 10px;
 }
 .contactSpan{
   width: 100px;
@@ -140,7 +140,7 @@ border: var(--border03);
   display: flex;
   flex-direction: row;
   width: 90%;
-  grid-gap: 2%;
+  gap: 2%;
 }
 .lookingForAJobInpP{
   margin: 0;

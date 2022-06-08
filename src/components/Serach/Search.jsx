@@ -5,7 +5,6 @@ import s from "./Search.module.css";
 let timerID = null;
 
 const Search = (props) => {
-  const dispatch = useDispatch()
   const [state, setState] = useState("");
   useEffect(() => {
     return () => {
@@ -20,7 +19,7 @@ const Search = (props) => {
     }
     timerID = setTimeout(() => {
       timerID = null;
-      dispatch(props.setTerm(e.target.value))
+      props.setTerm(e.target.value)
     }, 1000);
   };
   return (

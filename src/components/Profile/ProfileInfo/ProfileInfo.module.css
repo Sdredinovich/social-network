@@ -1,6 +1,6 @@
 .profileInfo {
   display: flex;
-  grid-gap: 10px;
+ gap: 10px;
 
 }
 @media (max-width: 960px) {

@@ -1,135 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import LargePhoto from "../LargePhoto/LargePhoto";
-import Paginator from "../Paginator/Paginator";
-import Search from "../Serach/Search";
-import anonim from "./../../photos/anonim.png";
-import lupa from "./../../photos/lupa.svg";
+import { Navigate } from "react-router";
 import {
   getFriends,
   setFriendsPageAC,
   setFriendsTermAC,
   setFriendsLoadingAC,
   getFriendFollow,
-  getFriendUnFollow, 
+  getFriendUnFollow,
 } from "../../redux/friendsReducer";
-import s from "./Friends.module.css";
+import Users from "../Users/Users";
 
 const Friends = (props) => {
-  const dispatch = useDispatch()
-  const [openPhoto, setOpenPhoto] = useState(false);
-  const [userData, setUserPhotoData] = useState({ photo: null, name: null });
-  const isAuth = useSelector(state=>state.authPage.isAuth)
-  const isLoading = useSelector(state=>state.friendsPage.isLoading)
-  const term = useSelector(state=>state.friendsPage.term)
-  const totalCount = useSelector(state=>state.friendsPage.totalCount)
-  const count = useSelector(state=>state.friendsPage.count)
-  const page = useSelector(state=>state.friendsPage.page)
-  const isFriend = useSelector(state=>state.friendsPage.isFriend)
-  const friends = useSelector(state=>state.friendsPage.friends)
+  const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.authPage.isAuth);
+  const count = useSelector((state) => state.friendsPage.count);
+  const page = useSelector((state) => state.friendsPage.page);
+  const term = useSelector((state) => state.friendsPage.term);
+  const isFriend = useSelector((state) => state.friendsPage.isFriend);
+  const users = useSelector((state) => state.friendsPage.friends);
+  const totalCount = useSelector((state) => state.friendsPage.totalCount);
+  const isLoading = useSelector((state) => state.friendsPage.isLoading);
 
-
-  const clickLargePhoto = (photo, name) => {
-    setUserPhotoData({ ...userData, photo, name });
-    setOpenPhoto(true);
-  };
   useEffect(() => {
     return () => {
-      dispatch(setFriendsLoadingAC(true))
-    dispatch(setFriendsTermAC(''))
-
+      dispatch(setFriendsLoadingAC(true));
+      dispatch(setFriendsTermAC(""));
     };
   }, []);
 
   useEffect(() => {
-    isAuth &&
-      dispatch(getFriends(count, page, isFriend,term))
+    isAuth&&dispatch(getFriends(count, page, isFriend, term));
   }, [page, term]);
-  const following = (value, id)=>{
-    value?dispatch(getFriendUnFollow(id)):dispatch(getFriendFollow(id))
-  }
 
+  const follow = useCallback((id) => {
+    dispatch(getFriendFollow(id));
+  }, []);
+  const unFollow = useCallback((id) => {
+    dispatch(getFriendUnFollow(id));
+  }, []);
+  const setTerm = useCallback((value) => {
+    dispatch(setFriendsTermAC(value));
+  }, []);
+  const setPage = useCallback((page) => {
+    dispatch(setFriendsPageAC(page));
+  }, []);
+  if (!isAuth) {return <Navigate to={"/login"} />;}
+  
   return (
-    <>
-      <div className={s.friends}>
-        {openPhoto && (
-          <LargePhoto
-            name={userData.name}
-            photo={userData.photo}
-            setOpenPhoto={setOpenPhoto}
-          />
-        )}
-
-        <Search
-          term={props.term}
-          placeholder={"Поиск друзей"}
-          setTerm={setFriendsTermAC}
-        />
-        {isLoading ? (
-          <h1>Загрузка...</h1>
-        ) : (
-          <div>
-            <Paginator
-              page={page}
-              setPage={setFriendsPageAC}
-              totalCount={totalCount}
-              count={count}
-            />
-          {friends.length < 1&&<h1>Пользователей нет</h1>}
-
-            {friends.map((friend) => {
-              return (
-                <div key={friend.id} className={s.friend}>
-                  <div className={s.friendInfo}>
-                    <div className={s.friendAvaDiv}>
-                      {friend.photos.large && (
-                        <div
-                          onClick={() => {
-                            clickLargePhoto(friend.photos.large, friend.name);
-                          }}
-                          className={s.imgOpenbtn}
-                        >
-                          <img alt={lupa} className={s.lupa} src={lupa} />
-                        </div>
-                      )}
-                      <NavLink
-                        className={s.friendLink}
-                        key={friend.id}
-                        to={`/profile/${friend.id}`}
-                      >
-                        <img
-                          className={s.friendAva}
-                          src={friend.photos.small || anonim}
-                        ></img>
-                      </NavLink>
-                    </div>
-                    <NavLink
-                      className={s.friendLink}
-                      key={friend.id}
-                      to={`/profile/${friend.id}`}
-                    >
-                      <div className={s.friendNameDiv}>
-                        <span className={s.friendName}>{friend.name}</span>
-                        <span className={s.friendStatus}>{friend.status}</span>
-                      </div>
-                    </NavLink>
-                  </div>
-                  <div
-                    className={s.followBtnDiv}
-                    onClick={() => {following(friend.followed, friend.id)}}
-                  >
-                    <p className={s.followBtnP}>
-                      {friend.followed ? "Отписаться" : "Подписаться"}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </>
+    <Users
+      setTerm={setTerm}
+      follow={follow}
+      unFollow={unFollow}
+      setPage={setPage}
+      count={count}
+      page={page}
+      totalCount={totalCount}
+      users={users}
+      term={term}
+      isLoading={isLoading}
+    />
   );
 };
 

@@ -12,12 +12,12 @@
       padding: 10px;
       display: flex;
       flex-direction: column;
-      grid-gap: 10px;
+      gap: 10px;
   }
   .contsctDiv{
       display: flex;
       flex-direction: row;
-      grid-gap: 5px;
+      gap: 5px;
   }
   .iconImg{
       width: 20px;
@@ -51,7 +51,7 @@
     .footer {
       display: flex;
       flex-direction: column;
-      grid-gap: 0;
+      gap: 0;
      padding: 0;
       
     }

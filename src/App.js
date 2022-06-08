@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, Routes, Navigate } from "react-router-dom";
 import s from "./App.module.css";
+import { AllUsers } from "./components/AllUsers/AllUsers";
 import Error from "./components/Error/Error";
 import Footer from "./components/Footer/Footer";
 import Friends from "./components/Friends/Friends";
@@ -12,7 +12,6 @@ import Navbar from "./components/Navbar/Navbar";
 import NewsContainer from "./components/News/NewsContainer";
 import Profile from "./components/Profile/Profile";
 import ServerError from "./components/ServerError/ServerError";
-import Users from "./components/Users/Users";
 import { initialMe } from "./redux/authReducer";
 
 function App(props) {
@@ -33,7 +32,7 @@ function App(props) {
             <Navbar isAuth={props.isAuth} />
             <div className={s.content}>
               <Routes>
-                <Route path="/users" element={<Users />} />
+                <Route path="/users" element={<AllUsers />} />
                 <Route path="/friends" element={<Friends />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Profile />} />
