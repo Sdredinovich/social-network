@@ -3,16 +3,16 @@
   padding: 5px;
 }
 .avaBtnDiv {
-  border: 1px solid black;
+  border: var(--border03);
   width: 350px;
-  border-radius: 5% 5% 5% 5%;
+  border-radius: 5%;
   overflow: hidden;
 }
 .avaDiv {
   position: relative;
 }
 .ava {
-  width: 350px;
+  width: 100%;
   display: block;
   border-radius: 0 0 0 0;
   cursor: pointer;
@@ -21,7 +21,7 @@
 .photoInp {
   display: none;
 }
-.inpBtn {
+.postPhotoBtn {
   width: 100%;
   text-align: center;
   background-color: var(--hover-color);
@@ -32,23 +32,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-transition: filter 0.2s;
+  transition: filter 0.2s;
 }
-.inpBtn:hover{
+.postPhotoBtn:hover {
   filter: drop-shadow(0px 1px 7px rgba(255, 255, 255, 1));
-
 }
 .increaseDiv {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.7);
+  background-image: url('./../../../../photos/lupa.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
   height: 100%;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
   opacity: 0;
   cursor: pointer;
 }
@@ -56,24 +54,10 @@ transition: filter 0.2s;
 .increaseDiv:hover {
   opacity: 0.5;
 }
-.increaseImg {
-  transition: transform 0.3s;
-  width: 35px;
-}
-.increaseImg:hover {
-  transform: scale(1.5);
-}
+
 @media screen and (max-width: 400px) {
-  .ava{
+  .avaBtnDiv {
     width: 100%;
   }
-  .avaBtnDiv{
-    width: 100%;
 
-
-  }
-  .increaseDiv {
-    width: 100%;
-
-  }
 }

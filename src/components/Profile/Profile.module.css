@@ -1,22 +1,18 @@
 .profile{
     display: flex;
     flex-direction: column;
-    grid-gap: 10px;
-    width: 100%;
+    gap: 10px;
 }
 .followingDiv{
     text-align: center;
     font-size: 25px;
-    font-weight: 700;
-    border: 1px solid black;
+    font-weight: 600;
     height: 40px;
     cursor: pointer;
     border: var(--border03);
-    transition: background-color 0.2s;
+    transition: all 0.2s;
 }
-.followingP{
-    margin: 0;
-}
+
 .followingDiv:hover{
     background-color: var(--hover-color);
     

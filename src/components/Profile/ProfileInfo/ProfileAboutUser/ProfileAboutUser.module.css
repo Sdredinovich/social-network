@@ -1,134 +1,73 @@
 .profileAboutUser {
-  position: relative;
-  width: auto;
   border-radius: 5px;
   padding: 5px;
   overflow: hidden;
   white-space: wrap;
-  word-wrap: break-word;
-    font-size: 18px;
-
-
+  word-wrap: wrap;
+  font-size: 18px;
 }
-.fullNameDiv {
-  padding: 0;
+.seePrefileInfo {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
 }
-.fullName {
-  font-size: 25px;
-  font-weight: 500;
+.titleDiv {
+  display: flex;
+  flex-direction: row;
+  border: var(--border03);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.titleP {
+  min-width: 110px;
   margin: 0;
 }
+.descriptionP {
+  margin: 0;
+  overflow: hidden;
+}
+.fullName {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 10px 0 ;
+}
 
-.contactsP {
-  font-weight: 700;
-}
-.contactP {
-  padding-left: 10px;
-}
-.changeInfoBtnDiv {
+.changeInfoBtn {
   height: 40px;
   text-align: center;
   background-color: var(--bg-color);
   cursor: pointer;
   border: var(--border03);
-  font-size: 17px;
   font-weight: 500;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: background-color 0.2s;
-
+  transition: all 0.2s;
 }
-.changeInfoBtnDiv:hover{
+.changeInfoBtn:hover {
   background-color: var(--hover-color);
 }
-.changeInfoBtnP {
-  margin: 0;
-}
-.seePrefileInfo{
-  padding: 5px;
-}
 .contactsDiv {
-  font-size: 20px;
-  padding-right: 5px;
   padding-bottom: 10px;
-
 }
 
-.contactDiv {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-.contactSpan{
-  width: 100px;
-}
-
-.contactDiv a{
+.contactLink {
   text-decoration: none;
   color: var(--text-color);
 }
-.contactLink{
-  overflow: hidden;
-  white-space: wrap;
-  word-wrap: break-word;
-}
-.titleDiv{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  white-space: wrap;
-  word-wrap: break-word;
-}
 
-.seePrefileInfo{
-  display: flex;
-  flex-direction: column;
-  grid-gap: 15px;
-}
-.contacts{
+
+
+.contacts {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 10px;
 }
-.toggleContacts{
+.toggleContacts {
   cursor: pointer;
   text-align: center;
   margin: 10px;
 }
-.title{
-  min-width: 140px;
-  
-}
-.fullName{
-  overflow: hidden;
-}
-.titleDiv > p{
-  margin: 0;
-  overflow: hidden;
-  white-space: wrap;
-  word-wrap: break-word;
-}
-.contactToggleImg{
-  width: 20px;
-  height: 20px;
-  transform: translateY(5px);
-  opacity: 0.7;
 
-}
-
-
-
-@media screen and (max-width: 600px) {
-  .seePrefileInfo{
-    width: auto;
-
-  }
-  .titleDiv{
-    width: auto;
-
-  
-  }
-}

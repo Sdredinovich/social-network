@@ -3,7 +3,6 @@ import s from "./ProfilePhoto.module.css";
 import LargePhoto from "./../../../LargePhoto/LargePhoto";
 import avatar from "./../../../../photos/anonim.png";
 import lupa from "./../../../../photos/lupa.svg";
-import exit from "./../../../../photos/exit.svg";
 import { useDispatch } from "react-redux";
 import { putProfilePhoto } from "../../../../redux/profileReducer";
 
@@ -25,32 +24,26 @@ const ProfilePhoto = (props) => {
       <div className={s.avaBtnDiv}>
         <div className={s.avaDiv}>
         {props.photo && (
-          <div className={s.increaseDiv}>
-            <img
-              onClick={() => {
-                setOpenPhoto(true);
-              }}
-              className={s.increaseImg}
-              src={lupa}
-            />
+          <div               onClick={() => {
+            setOpenPhoto(true);
+          }} className={s.increaseDiv}>
+
           </div>
         )}
         <img className={s.ava} alt="avatar" src={props.photo || avatar} />
         </div>
         {props.itsMe && (
-        <div className={s.postPhotoDiv}>
-          <input
-            accept="image/*"
+        <btn onClick={inpClick} className={s.postPhotoBtn}>
+          <input accept="image/*"
             className={s.photoInp}
             ref={inpRef}
             name="profilePhoto"
             type={"file"}
             onChange={changedPhoto}
           />
-          <p className={s.inpBtn} onClick={inpClick}>
             ОБНОВИТЬ ФОТО
-          </p>
-        </div>
+
+        </btn>
       )}
       </div>
  

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router";
 import { getFollowProfile, getProfile, getUnFollowProfile, setProfilLoadingAC } from "../../redux/profileReducer";
@@ -18,15 +18,14 @@ const Profile = (props) => {
   const following = (value, id)=>{
     value?dispatch(getUnFollowProfile(id)):dispatch(getFollowProfile(id))
   }
-
+  
   useEffect(() => {
+    userId && dispatch(getProfile(userId, isAuth))
     return () => {
       dispatch(setProfilLoadingAC(true))
     };
   }, [userId]);
-  useEffect(() => {
-    userId && dispatch(getProfile(userId, isAuth))
-  }, [userId]);
+
 
   if (!isAuth && !id) {
     return <Navigate to={"/login"} />;
@@ -42,18 +41,8 @@ const Profile = (props) => {
             itsMe={itsMe}
             profile={profile}
           />
-          {!itsMe && isAuth && (
-            <div
-              className={s.followingDiv}
-              onClick={() => {
-                following(profile.followed, profile.userId)
-              }}
-            >
-              <p className={s.followingP}>
-                {profile.followed ? "Отписаться" : "Подписаться"}
-              </p>
-            </div>
-          )}
+          {!itsMe && isAuth && (<div className={s.followingDiv}onClick={() => {following(profile.followed, profile.userId)}}>
+                {profile.followed ? "Отписаться" : "Подписаться"}</div>)}
         </div>
       )}
     </>

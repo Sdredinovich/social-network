@@ -47,9 +47,12 @@
   background-position: center;
   background-size: 20px 20px;
   background-repeat: no-repeat;
-  transition: all 0.2s;
+  transition: all 0.1s;
 }
+.imgOpenbtn:hover{
+  background-size: 23px 23px;
 
+}
 .userNameAndStatusDiv {
   display: flex;
   flex-direction: column;
@@ -72,12 +75,10 @@
   text-overflow: ellipsis;
   margin: 0;
 }
-
 .userLink {
   text-decoration: none;
   color: var(--text-color);
 }
-
 .userLink:hover .userName {
   font-weight: 600;
 }
