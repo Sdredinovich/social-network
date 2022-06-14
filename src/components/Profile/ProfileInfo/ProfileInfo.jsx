@@ -13,6 +13,8 @@ const ProfileInfo = (props) => {
       />
 
       <ProfileAboutUser
+          postStatus={props.postStatus}
+
         isAuth={props.isAuth}
         itsMe={props.itsMe}
         profile={props.profile}

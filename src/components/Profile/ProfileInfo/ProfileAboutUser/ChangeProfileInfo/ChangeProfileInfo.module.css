@@ -1,114 +1,86 @@
 .changeProfileInfo {
   width: auto;
-  max-width: 370px;
-  padding: 5px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+
 }
 .form {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 10px;
+  grid-gap: 10px;
+
 }
 .inpDiv {
-  padding-top: 10px;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  font-size: 18px;
+  flex-direction: row;
   align-items: center;
-}
-.inpDiv > p {
-  padding-bottom: 5px;
-  font-weight: 500;
+
+
+
+
 }
 
-.inpDiv input {
-  width: 90%;
-border-radius: 3px;
-  padding: 0;
-  height: 30px;
+.inpP{
+  width: 110px;
+  margin: 0;
+}
+.inp {
+  flex-grow: 1;
   font-size: 20px;
   background-color: var(--bg-color);
   border: var(--border03);
   -webkit-box-shadow: inset 0 0 0 50px var(--bg-color);
   -webkit-text-fill-color: var(--text-color);
+  width: 10px;
 }
 
-.inpDiv input::placeholder{
+.inp::placeholder{
   opacity: 0.5;
 }
 
-
-.idDiv input{
- opacity: 0.4;
-}
 .changeInfoBtn {
-  width: 100%;
   height: 40px;
+  text-align: center;
+  padding: 0;
   background-color: var(--bg-color);
   cursor: pointer;
+  border: var(--border03);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.2s;
   font-size: 17px;
-  font-weight: 700;
-transition: background-color 0.2s;
-border: var(--border03);
+  align-items: center;
+  color: var(--text-color);
 }
 
 .changeInfoBtn:hover{
   background-color: var(--hover-color);
 }
 
-.changeInfoBtnP {
-  text-align: center;
-  margin: 0;
-  color: var(--text-color);
-}
-.lookingForAJobDiv2 > p {
-  display: inline;
-  font-weight: 500;
 
-  width: 150px;
-}
-.lookingForAJobDiv2 {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
 .contactsDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-  padding-bottom: 10px;
 }
 .contacts{
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 10px;
 }
-.contactsDiv  input {
-  width: 90%;
-  padding: 0;
-  height: 30px;
-  font-size: 20px;
-
-}
-.contactDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
-}
-.contactSpan{
-  width: 100px;
-}
 
 
 
-.inputAndTitle > p{
-  width: 150px;
-  margin: 0;
-}
+
+
+
+
 .contactToggleImg{
   width: 20px;
   height: 20px;
@@ -139,10 +111,10 @@ border: var(--border03);
 .fakeCheckedDiv{
   display: flex;
   flex-direction: row;
-  width: 90%;
+  flex-grow: 1;
   gap: 2%;
 }
-.lookingForAJobInpP{
+.lookingForAJobInpLbl{
   margin: 0;
   border: var(--border03);
   width: 49%;
@@ -164,21 +136,3 @@ border: var(--border03);
   color: red;
 }
 
-@media screen and (max-width: 400px) {
-  .changeProfileInfo {
-    width: auto;
-  }
-  .inputAndTitle{
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0;
-
-  }
-  .inputAndTitle input {
-    margin: 0;
-
-  }
-}

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router";
-import { getFollowProfile, getProfile, getUnFollowProfile, setProfilLoadingAC } from "../../redux/profileReducer";
+import { getFollowProfile, getProfile, getUnFollowProfile, putProfileStatus, setProfilLoadingAC } from "../../redux/profileReducer";
 import s from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
@@ -18,7 +18,9 @@ const Profile = (props) => {
   const following = (value, id)=>{
     value?dispatch(getUnFollowProfile(id)):dispatch(getFollowProfile(id))
   }
-  
+  const postStatus = useCallback((status)=>{
+dispatch(putProfileStatus(status))
+  }, [])
   useEffect(() => {
     userId && dispatch(getProfile(userId, isAuth))
     return () => {
@@ -37,6 +39,7 @@ const Profile = (props) => {
       ) : (
         <div className={s.profile}>
           <ProfileInfo
+          postStatus={postStatus}
             isAuth={isAuth}
             itsMe={itsMe}
             profile={profile}

@@ -125,98 +125,96 @@ const [openContacts, setOpenContacts] = useState(false)
   return (
     <div className={s.changeProfileInfo}>
       <form className={s.form}>
-        <div className={`${s.fullNameInpDiv} ${s.inpDiv}`}>
-          <div className={s.inputAndTitle}>
-            <p> Полное имя: </p>
+        <div className={`${s.inpDiv}`}>
+            <p className={s.inpP}> Полное имя: </p>
            
             <input
               placeholder="Полное имя"
               onChange={changeHandler}
               onBlur={blurHandler}
               name={"fullName"}
-              className={`${s.fullNameInput} `}
+              className={`${s.inp} `}
               id={`${error.fullName&&s.errorInp}`}
               value={value.fullName}
               title='Обязательное поле'
 
             />
           
-          </div>
         </div>
-        <div className={`${s.aboutMeDiv} ${s.inpDiv}`}>
-          <div className={s.inputAndTitle}>
-            <p> Обо мне: </p>
+        <div className={`${s.inpDiv}`}>
+            <p className={s.inpP}> Обо мне: </p>
             <input
               placeholder="Обо мне"
               onChange={changeHandler}
               onBlur={blurHandler}
               name={"aboutMe"}
-              className={`${s.aboutMeInput} ${error.aboutMe && s.errorInp}`}
+              className={`${s.inp} ${error.aboutMe && s.errorInp}`}
               value={value.aboutMe}
               id={`${error.aboutMe&&s.errorInp}`}
               title='Обязательное поле'
             />
 
-          </div>
 
         </div>
 
-        <div className={`${s.lookingForAJobDiv} ${s.inpDiv}`}>
-          <div className={s.inputAndTitle}>
-            <p> Ищу работу: </p>
+        <div className={`${s.inpDiv}`}>
+            <p className={s.inpP}> Ищу работу: </p>
             <input
               onChange={changeHandler}
               name={"lookingForAJob"}
               id={'lookingForAJob'}
               type={"checkbox"}
-              className={s.lookingForAJobInput}
+              className={`${s.inp} ${s.lookingForAJobInput}`}
               checked={value.lookingForAJob}
             />
             
             <div className={s.fakeCheckedDiv}>
               {" "}
               <label htmlFor={'lookingForAJob'}
-                className={`${s.lookingForAJobInpP} ${
+                className={`${s.lookingForAJobInpLbl} ${
                   value.lookingForAJob && s.active
                 }`}
               >
                 Да
               </label>
               <label htmlFor={'lookingForAJob'}
-                className={`${s.lookingForAJobInpP} ${
+                className={`${s.lookingForAJobInpLbl} ${
                   !value.lookingForAJob && s.active
                 }`}
               >
                 Нет
               </label>
             </div>
-          </div>
         </div>
         {value.lookingForAJob && (
-          <div className={`${s.lookingForAJobDescriptionDiv} ${s.inpDiv}`}>
-            <div className={s.inputAndTitle}>
-              <p>Профессия:</p>
+          <div className={`${s.inpDiv}`}>
+              <p className={s.inpP}>Профессия:</p>
               <input
                 placeholder="Желаемая профессия"
                 onChange={changeHandler}
                 onBlur={blurHandler}
                 name={"lookingForAJobDescription"}
-                className={s.lookingForAJobDescription}
+                className={s.inp}
                 value={value.lookingForAJobDescription}
               />
-            </div>
           </div>
         )}
-        <div className={`${s.contactsDiv} ${s.inpDiv}`}>
-          <p className={s.toggleContacts} onClick={()=>{
-            setOpenContacts(!openContacts)
-          }}>Контакты <img className={s.contactToggleImg} src={openContacts?vverh:vniz}/> </p>
+        <div className={`${s.contactsDiv}`}>
+                      <div
+              className={s.changeInfoBtn}
+              onClick={(e) => {
+                setOpenContacts(!openContacts);
+              }}
+            >{openContacts?'Скрыть контакты':'Показать контакты'}
+            </div>
+          
 {openContacts&&          <div className={s.contacts}>
           {contactKeys.map((key) => {
             return (
-              <div key={key} className={s.contactDiv}>
-                <span className={s.contactSpan}>{key}:</span>
+              <div key={key} className={s.inpDiv}>
+                <p className={s.inpP}>{key}:</p>
                 <input
+                className={s.inp}
                   onChange={changeHandler}
                   name={key}
                   value={value.contacts[key]}
@@ -230,13 +228,11 @@ const [openContacts, setOpenContacts] = useState(false)
           onClick={saveProfile}
           disabled={error.fullName || error.aboutMe}
           className={s.changeInfoBtn}
-        >
-          <p className={s.changeInfoBtnP}>Сохранить изменения</p>
+        >Сохранить изменения
         </button>
       </form>
 
-      <button onClick={props.changeClick} className={s.changeInfoBtn}>
-        <p className={s.changeInfoBtnP}>Отменить редактирование</p>
+      <button onClick={props.changeClick} className={s.changeInfoBtn}>Отменить редактирование
       </button>
     </div>
   );

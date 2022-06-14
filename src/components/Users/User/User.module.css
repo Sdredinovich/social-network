@@ -1,5 +1,4 @@
 .user {
-  cursor: pointer;
   min-height: 85px;
   padding: 5px;
   display: flex;
@@ -18,13 +17,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 70%;
+  max-width: 70%;
   gap: 7px;
-
+  overflow: hidden;
 }
 .userAvaDiv {
   overflow: hidden;
   position: relative;
-  width: 70px;
+  min-width: 70px;
   height: 70px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
@@ -57,8 +58,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 400px;
-  
+  overflow: hidden;
 }
 .userName {
   transition: all 0.2s;
@@ -78,10 +78,9 @@
 .userLink {
   text-decoration: none;
   color: var(--text-color);
+  
 }
-.userLink:hover .userName {
-  font-weight: 600;
-}
+
 .followBtn {
   border: var(--border03);
   border-radius: 5px;
@@ -93,22 +92,5 @@
   justify-content: center;
   font-size: 13px;
   font-weight: 500;
-}
 
-
-@media (max-width: 960px) {
-  .userNameAndStatusDiv {
-    width: 320px;
-  }
-}
-
-@media (max-width: 600px) {
-  .userNameAndStatusDiv {
-    width: 200px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .userNameAndStatusDiv {
-    width: 150px;
-  }
 }

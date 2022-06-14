@@ -6,6 +6,12 @@
     border: var(--border05);
     background-color: var(--bg-color);
     border-radius: 10px;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    caret-color: rgba(0,0,0,0);
 
   }
   .authorContacts{
@@ -32,13 +38,7 @@
 
     
   }
-  .email{
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-  }
+
 
   .contsctDiv:hover > .iconImg{
     filter: drop-shadow(0px 1px 7px rgba(255, 255, 255, 1));
