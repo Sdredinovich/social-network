@@ -31,10 +31,11 @@
 .inp {
   flex-grow: 1;
   font-size: 20px;
-  background-color: var(--bg-color);
+  background-color: rgb(163, 163, 163);
+  border-radius: 3px;
   border: var(--border03);
-  -webkit-box-shadow: inset 0 0 0 50px var(--bg-color);
-  -webkit-text-fill-color: var(--text-color);
+  -webkit-box-shadow: inset 0 0 0 50px rgb(163, 163, 163);
+  -webkit-text-fill-color: black;
   width: 10px;
 }
 
