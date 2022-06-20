@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { connect } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { Route, Routes, Navigate } from "react-router-dom";
 import s from "./App.module.css";
 import { AllUsers } from "./components/AllUsers/AllUsers";
@@ -11,17 +11,20 @@ import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import NewsContainer from "./components/News/NewsContainer";
 import Profile from "./components/Profile/Profile";
-import ServerError from "./components/ServerError/ServerError";
 import { initialMe } from "./redux/authReducer";
 
 function App(props) {
+ const dispatch = useDispatch()
+ const isInit = useSelector(state=>state.authPage.isInit)
+
+
   useEffect(() => {
-    props.initialMe();
+    dispatch(initialMe());
   }, []);
 
   return (
     <>
-      {!props.isInit ? (
+      {!isInit ? (
         <div className={s.initLoading}>
           <h1> ЗАГРУЗКА...</h1>
         </div>
@@ -29,7 +32,7 @@ function App(props) {
         <div className={s.app}>
           <Header />
           <div className={s.navAndContentDiv}>
-            <Navbar isAuth={props.isAuth} />
+            <Navbar />
             <div className={s.content}>
               <Routes>
                 <Route path="/users" element={<AllUsers />} />
@@ -37,10 +40,8 @@ function App(props) {
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Profile />} />
                 <Route path="/news" element={<NewsContainer />} />
-                <Route path="/profile/" element={<Profile />} />
                 <Route path="/profile/:id" element={<Profile />} />
                 <Route path="/error" element={<Error />} />
-                <Route path="/serverError" element={<ServerError />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </div>
@@ -51,12 +52,5 @@ function App(props) {
     </>
   );
 }
-let mapStateToProps = (state) => {
-  return {
-    isAuth: state.authPage.isAuth,
-    isLoading: state.authPage.isLoading,
-    authData: state.authPage.authData,
-    isInit: state.authPage.isInit,
-  };
-};
-export default connect(mapStateToProps, { initialMe })(App);
+
+export default App

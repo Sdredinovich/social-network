@@ -1,9 +1,11 @@
 .avaOpenImg {
   width: 80%;
+  border-radius: 15px;
 }
 .avaOpenDiv2 {
   border-radius: 5%;
   cursor: auto;
+  padding: 15px;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -12,7 +14,6 @@
   background-color: var(--bg-color);
   color: var(--text-color);
   border: var(--border05);
-  height: 650px;
 }
 .avaOpenDiv {
   z-index: 1;
@@ -65,14 +66,10 @@
 }
 @media screen and (max-width: 600px) {
   .avaOpenDiv2{
-    width: 99%;
-    height: auto;
+    width: 90%;
     position: relative;
-    
   }
   .avaOpenImg {
-    padding-top: 10px;
     width: 96%;
-    border-radius: 5px;
   }
 } 

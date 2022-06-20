@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import s from "./ChangeProfileInfo.module.css";
-import vverh from './../../../../../photos/vverh.png'
-import vniz from './../../../../../photos/vniz.png'
 import { useDispatch } from "react-redux";
 import { putProfile } from "../../../../../redux/profileReducer";
 
@@ -16,7 +14,6 @@ const ChangeProfileInfo = (props) => {
     lookingForAJobDescription: props.profile.lookingForAJobDescription,
     contacts: props.profile.contacts,
   });
-const [openContacts, setOpenContacts] = useState(false)
   const [error, setError] = useState({
     fullName: "",
     userId: "",
@@ -200,15 +197,9 @@ const [openContacts, setOpenContacts] = useState(false)
           </div>
         )}
         <div className={`${s.contactsDiv}`}>
-                      <div
-              className={s.changeInfoBtn}
-              onClick={(e) => {
-                setOpenContacts(!openContacts);
-              }}
-            >{openContacts?'Скрыть контакты':'Показать контакты'}
-            </div>
+                 
           
-{openContacts&&          <div className={s.contacts}>
+<div className={s.contacts}>
           {contactKeys.map((key) => {
             return (
               <div key={key} className={s.inpDiv}>
@@ -222,7 +213,7 @@ const [openContacts, setOpenContacts] = useState(false)
               </div>
             );
           })}
-          </div>}
+          </div>
         </div>
         <button
           onClick={saveProfile}

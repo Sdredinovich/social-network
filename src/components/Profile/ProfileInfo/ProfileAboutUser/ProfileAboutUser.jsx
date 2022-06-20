@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import ChangeProfileInfo from "./ChangeProfileInfo/ChangeProfileInfo";
 import s from "./ProfileAboutUser.module.css";
-import vverh from "./../../../../photos/vverh.png";
-import vniz from "./../../../../photos/vniz.png";
 
 const ProfileAboutUser = (props) => {
   const [changeProfile, setChangeProfile] = useState(false);

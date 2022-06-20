@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import s from "./LogOut.module.css";
 import anonim from "./../../../photos/anonim.png";
 import vpravo from "./../../../photos/vpravo.png";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../../redux/authReducer";
 
@@ -23,7 +23,7 @@ const LogOut = (props) => {
         className={`${s.logOutBtn} ${logOutBtnNone && s.btnNone}`}
      
       >
-        <NavLink onClick={toggleBtn} className={s.loginNavlink} to={'./'}>
+        <Link onClick={toggleBtn} className={s.loginNavlink} to={'./'}>
         <div className={s.aboutMeDiv}>
           <div className={s.headerAvaDiv}>
             <img className={s.headerAvaImg} src={myProfile.photos.small || anonim} />
@@ -41,7 +41,7 @@ const LogOut = (props) => {
             <img src={vpravo} className={s.vpravoImg} />
           </div>
         </div>
-        </NavLink>
+        </Link>
         <div className={s.exitDiv} onClick={()=>{
           dispatch(logOut())
         }}>

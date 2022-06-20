@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import s from "./User.module.css";
 import anonim from "./../../../photos/anonim.png";
 import LargePhoto from "../../LargePhoto/LargePhoto";
 
 export const User = ({ user, unFollow, follow }) => {
+  
   const [openPhoto, setOpenPhoto] = useState(false);
   const [userData, setUserPhotoData] = useState({ photo: null, name: null });
 
@@ -35,7 +36,7 @@ export const User = ({ user, unFollow, follow }) => {
           setOpenPhoto={setOpenPhoto}
         />
       )}
-      <NavLink
+      <Link
         onClick={navClicked}
         to={`/profile/${user.id}`}
         className={s.userLink}
@@ -60,7 +61,7 @@ export const User = ({ user, unFollow, follow }) => {
             </div>
           </div>
 
-          <btn
+          <button
             ref={followBtnRef}
             className={s.followBtn}
             onClick={() => {
@@ -68,9 +69,9 @@ export const User = ({ user, unFollow, follow }) => {
             }}
           >
             {user.followed ? "Отписаться" : "Подписаться"}
-          </btn>
+          </button>
         </div>
-      </NavLink>
+      </Link>
     </>
   );
 };
