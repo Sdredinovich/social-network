@@ -15,9 +15,6 @@ const Header = (props) => {
   return (
     <div className={s.header}>
 
-
-
-
           <HeaderNavbar isAuth={isAuth} />
 
 

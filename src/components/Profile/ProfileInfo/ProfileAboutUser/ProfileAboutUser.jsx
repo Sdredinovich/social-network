@@ -1,31 +1,65 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { putProfileStatus } from "../../../../redux/profileReducer";
 import ChangeProfileInfo from "./ChangeProfileInfo/ChangeProfileInfo";
 import s from "./ProfileAboutUser.module.css";
 
 const ProfileAboutUser = (props) => {
+  const dispatch = useDispatch()
+
   const [changeProfile, setChangeProfile] = useState(false);
-  const [changeStatus, setChangeStatus] = useState(false);
+  const [openStatus, setOpenStatus] = useState(false);
+  const [status, setStatus] = useState(props.profile.status);
   const [openContacts, setOpenContacts] = useState(false);
+
   const changeProfileClick = () => {
     setChangeProfile(!changeProfile);
   };
-  
-  
+  const openStatusFunc = () => {
+    setOpenStatus(!openStatus);
+  };
+  const statusChanger = (e) => {
+    setStatus(e.target.value);
+  };
+  const postStatusClick = (e)=>{
+    e.preventDefault()
+    
+    dispatch(putProfileStatus(status)).then(res=>{
+      openStatusFunc()
+    })
+  }
+
   const contactKeys = Object.keys(props.profile.contacts);
 
   return (
     <div className={s.profileAboutUser}>
       {changeProfile ? (
-        <ChangeProfileInfo changeClick={changeProfileClick} profile={props.profile} />
+        <ChangeProfileInfo
+          changeClick={changeProfileClick}
+          profile={props.profile}
+        />
       ) : (
         <div className={s.seePrefileInfo}>
           <p className={s.fullName}>{props.profile.fullName}</p>
-
           <div className={s.titleDiv}>
-            <p onDoubleClick={()=>{
-            setChangeStatus(true)
-          }} className={s.titleP}> Статус:</p>
-            <p className={s.descriptionP}>{changeStatus?<inpput/>:props.profile.status}</p>
+            <p className={`${s.titleP} ${s.statusP}`}>
+              {" "}
+              Статус:{" "}
+              <span className={s.ruchkaDiv} onClick={openStatusFunc}></span>{" "}
+            </p>
+            {openStatus ? (
+              <form className={s.statusForm}>
+                <input
+                maxlength="300"
+                  onChange={statusChanger}
+                  value={status}
+                  className={s.inp}
+                />
+                <button className={s.statusFormBtn} onClick={postStatusClick} >ОК</button>
+              </form>
+            ) : (
+              <p className={s.descriptionP}>{props.profile.status}</p>
+            )}
           </div>
           <div className={s.titleDiv}>
             <p className={s.titleP}> Обо мне:</p>
@@ -56,10 +90,11 @@ const ProfileAboutUser = (props) => {
               onClick={() => {
                 setOpenContacts(!openContacts);
               }}
-            >{openContacts?'Скрыть контакты':'Показать контакты'}
+            >
+              {openContacts ? "Скрыть контакты" : "Показать контакты"}
             </button>
-            
-              {openContacts &&
+
+            {openContacts && (
               <div className={s.contacts}>
                 {contactKeys.map(
                   (key) =>
@@ -77,11 +112,9 @@ const ProfileAboutUser = (props) => {
                         </p>
                       </div>
                     )
-                    
                 )}
-                </div>
-                }
-            
+              </div>
+            )}
           </div>
 
           {props.isAuth && props.itsMe && (
@@ -92,6 +125,7 @@ const ProfileAboutUser = (props) => {
         </div>
       )}
     </div>
+    
   );
 };
 

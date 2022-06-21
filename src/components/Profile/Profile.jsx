@@ -38,6 +38,7 @@ dispatch(putProfileStatus(status))
         <h1>ЗАГРУЗКА...</h1>
       ) : (
         <div className={s.profile}>
+
           <ProfileInfo
           postStatus={postStatus}
             isAuth={isAuth}

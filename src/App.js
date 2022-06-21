@@ -33,6 +33,7 @@ function App(props) {
           <Header />
           <div className={s.navAndContentDiv}>
             <Navbar />
+            
             <div className={s.content}>
               <Routes>
                 <Route path="/users" element={<AllUsers />} />

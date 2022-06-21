@@ -33,7 +33,7 @@ const ProfilePhoto = (props) => {
         <img className={s.ava} alt="avatar" src={props.photo || avatar} />
         </div>
         {props.itsMe && (
-        <btn onClick={inpClick} className={s.postPhotoBtn}>
+        <button onClick={inpClick} className={s.postPhotoBtn}>
           <input accept="image/*"
             className={s.photoInp}
             ref={inpRef}
@@ -43,7 +43,7 @@ const ProfilePhoto = (props) => {
           />
             ОБНОВИТЬ ФОТО
 
-        </btn>
+        </button>
       )}
       </div>
  

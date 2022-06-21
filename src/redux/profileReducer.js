@@ -62,10 +62,13 @@ export const getProfile = (userId, isAuth) => async (dispatch) => {
     dispatch(setProfilLoadingAC(false));
   
 };
-export const putProfileStatus = (status) => (dispatch) => {
-  profileApi.putProfileStatus(status).then((res) => {
-    dispatch(setProfileStatusAC(res.data));
-  });
+export const putProfileStatus = (status) => async (dispatch) => {
+
+  const res = await profileApi.putProfileStatus(status);
+  if(res.data.resultCode==0){
+    dispatch(setProfileStatusAC(status));
+  }
+  console.log(res.data);
 };
 export const putProfile = (profile) => async (dispatch) => {
   const res = await profileApi.putProfile(profile);

@@ -126,6 +126,7 @@ const ChangeProfileInfo = (props) => {
             <p className={s.inpP}> Полное имя: </p>
            
             <input
+                // maxLength='100'
               placeholder="Полное имя"
               onChange={changeHandler}
               onBlur={blurHandler}
@@ -141,6 +142,7 @@ const ChangeProfileInfo = (props) => {
         <div className={`${s.inpDiv}`}>
             <p className={s.inpP}> Обо мне: </p>
             <input
+            maxLength='1000'
               placeholder="Обо мне"
               onChange={changeHandler}
               onBlur={blurHandler}
@@ -187,7 +189,8 @@ const ChangeProfileInfo = (props) => {
           <div className={`${s.inpDiv}`}>
               <p className={s.inpP}>Профессия:</p>
               <input
-                placeholder="Желаемая профессия"
+                maxLength='1000'
+                placeholder="Профессия"
                 onChange={changeHandler}
                 onBlur={blurHandler}
                 name={"lookingForAJobDescription"}
@@ -205,6 +208,7 @@ const ChangeProfileInfo = (props) => {
               <div key={key} className={s.inpDiv}>
                 <p className={s.inpP}>{key}:</p>
                 <input
+                maxLength='200'
                 className={s.inp}
                   onChange={changeHandler}
                   name={key}
