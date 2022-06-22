@@ -46,8 +46,9 @@ export const setNewsPage = (value) => ({ type: SET_NEWS_PAGE, value });
 
 export const getNews = (page, pageSize) => async (dispatch) => {
   const newsData = await newsApi.getNews(page, pageSize);
-  dispatch(setNewsAC(newsData.data.articles));
-  dispatch(setNewsTotalCount(newsData.data.totalResults));
+  console.log(newsData);
+  dispatch(setNewsAC(newsData.data));
+  dispatch(setNewsTotalCount(10));//Общее количество новостей пока зафиксировано мной, а не приходит с сервера(((
   dispatch(setNewsLoadingAC(false));
 };
 

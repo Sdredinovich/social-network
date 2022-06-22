@@ -80,7 +80,7 @@ export const followApi = {
 
 export const newsApi = {
   getNews:async (page=1, pageSize=1)=>{
-  const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=ru&page=${page}&pageSize=${pageSize}&apiKey=bba93bdb85e94adb904a4afa5211921a`);
-    return res;
+  const res = await axios.get(`https://my-json-server.typicode.com/Sdredinovich/news-server/news?_page=${page}&_limit=${pageSize}`);
+  return res;
   }
 }

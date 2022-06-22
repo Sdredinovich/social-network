@@ -39,9 +39,9 @@ const News = (props) => {
                       <a
                         target={"_blank"}
                         className={s.sourceA}
-                        href={`http://${props.news[id].source.name}`}
+                        href={`http://${props.news[id].source}`}
                       >
-                        {props.news[id].source.name}
+                        {props.news[id].source}
                       </a>
                     ) || "Неизвестен"}
                   </p>

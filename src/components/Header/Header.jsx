@@ -6,10 +6,13 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import LogOut from "./LogOut/LogOut";
 import HeaderNavbar from "./HeaderNavbar";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import { useEffect } from "react";
 
 
 
 const Header = (props) => {
+
   const isAuth = useSelector((state) => state.authPage.isAuth);
 
   return (

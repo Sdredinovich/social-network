@@ -45,7 +45,7 @@ const ProfileAboutUser = (props) => {
             <p className={`${s.titleP} ${s.statusP}`}>
               {" "}
               Статус:{" "}
-              <span className={s.ruchkaDiv} onClick={openStatusFunc}></span>{" "}
+             {props.itsMe&&<span className={s.ruchkaDiv} onClick={openStatusFunc}></span>} {" "}
             </p>
             {openStatus ? (
               <form className={s.statusForm}>
