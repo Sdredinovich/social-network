@@ -111,10 +111,18 @@ cursor: pointer;
   background-color: var(--hover-color);
 }
 
+
+
 @media screen and (max-width: 600px) {
   .loginDiv {
     width: 90%;
-  
-    
+  }
+  .errorP{
+    display: none;
+  }
+}
+@media screen and (max-width: 600px){
+  .errorRed{
+    border: 2px solid red
   }
 }
