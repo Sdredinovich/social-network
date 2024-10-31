@@ -7,9 +7,9 @@ import s from "./Login.module.css";
 const Login = (props) => {
   const dispatch = useDispatch()
   const isAuth = useSelector(state=>state.authPage.isAuth)
-  const [value, setValue] = useState({
-    email: "",
-    password: "",
+  const [formValue, setFormValue] = useState({
+    email: "sedredinovich@gmail.com",
+    password: "saashdSo12_",
     rememberMe: false,
   });
   const [error, setError] = useState({
@@ -34,7 +34,7 @@ const Login = (props) => {
   const inpHundler = (e) => {
     switch (e.target.name) {
       case "email":
-        setValue({ ...value, email: e.target.value });
+        setFormValue({ ...formValue, email: e.target.value });
         setServerError("");
         var re = /\S+@\S+\.\S+/;
         if (!re.test(e.target.value)) {
@@ -44,7 +44,7 @@ const Login = (props) => {
         }
         break;
       case "password":
-        setValue({ ...value, password: e.target.value });
+        setFormValue({ ...formValue, password: e.target.value });
 
         setServerError("");
 
@@ -58,8 +58,11 @@ const Login = (props) => {
         }
         break;
         case "rememberMe":
-          setValue({ ...value, rememberMe: e.target.checked });
+          setFormValue({ ...formValue, rememberMe: e.target.checked });
           break;
+
+          default: 
+          break
       
    
       }
@@ -77,8 +80,9 @@ const Login = (props) => {
   }
   
   const loginSubmit = async (e) => {
+    console.log(formValue)
     e.preventDefault();
-    const res = await dispatch(login(value))
+    const res = await dispatch(login(formValue))
     if (res === 1) {
       setServerError("Неверный пароль или логин");
     }
@@ -101,7 +105,7 @@ const Login = (props) => {
 
             <input
               onChange={(e) => inpHundler(e)}
-              value={value.email}
+              value={formValue.email}
               onBlur={(e) => blurHandler(e)}
               name="email"
               placeholder="Введите логин"
@@ -115,7 +119,7 @@ const Login = (props) => {
             )}
             <input
               onChange={(e) => inpHundler(e)}
-              value={value.password}
+              value={formValue.password}
               onBlur={(e) => blurHandler(e)}
               name="password"
               placeholder="Введите пароль"
@@ -130,15 +134,15 @@ const Login = (props) => {
             <input
               type={"checkbox"}
               onChange={(e) => inpHundler(e)}
-              value={value.rememberMe}
+              value={formValue.rememberMe}
               onBlur={(e) => blurHandler(e)}
               name="rememberMe"
               id="rememberMe"
               className={`${s.inp} ${s.checkbox }`}
             />
             <div className={s.checkboxToggle}>
-<label htmlFor='rememberMe' className={`${s.checkboxP} ${value.rememberMe&&s.active}`}>Да</label>
-<label htmlFor='rememberMe' className={`${s.checkboxP} ${!value.rememberMe&&s.active}`}>Нет</label>
+<label htmlFor='rememberMe' className={`${s.checkboxP} ${formValue.rememberMe&&s.active}`}>Да</label>
+<label htmlFor='rememberMe' className={`${s.checkboxP} ${!formValue.rememberMe&&s.active}`}>Нет</label>
 </div>
 </div>
 
