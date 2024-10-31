@@ -18,8 +18,8 @@ export const User = ({ user, unFollow, follow }) => {
 
   const navClicked = (event) => {
     if (
-      event.target == followBtnRef.current ||
-      event.target == lupaRef.current
+      event.target === followBtnRef.current ||
+      event.target === lupaRef.current
     ) {
       event.preventDefault();
     }

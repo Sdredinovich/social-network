@@ -12,19 +12,19 @@ const HeaderNavbar = (props) => {
  
   const activeClass = ()=>{
     const location = pathname.slice(1)
-    if(location=='login'){
+    if(location==='login'){
       return s.line1
     }
-if(location=='users'){
+if(location==='users'){
   return s.line4
 }
-if(location=='friends'){
+if(location==='friends'){
   return s.line3
 }
-if(location=='news'){
+if(location==='news'){
   return s.line2
 }
-if(location==''){
+if(location===''){
   return s.line1
 }
   }

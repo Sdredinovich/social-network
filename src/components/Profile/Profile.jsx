@@ -14,7 +14,7 @@ const Profile = (props) => {
 
   const { id } = useParams();
   const userId = id || myId;
-  const itsMe = isAuth && userId == myId;
+  const itsMe = isAuth && userId === myId;
   const following = (value, id)=>{
     value?dispatch(getUnFollowProfile(id)):dispatch(getFollowProfile(id))
   }

@@ -82,7 +82,7 @@ export const putProfile = (profile) => async (dispatch) => {
 export const putProfilePhoto = (photo) => async (dispatch) => {
   
   const res = await profileApi.putProfilePhoto(photo);
-  if (res.resultCode == 0) {
+  if (res.resultCode === 0) {
     dispatch(setProfilePhotoAC(res.data.photos));
   }
 };
