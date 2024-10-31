@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router";
+import { Navigate } from "react-router";
 import { login } from "../../redux/authReducer";
 import s from "./Login.module.css";
 
@@ -76,6 +76,8 @@ const Login = (props) => {
       case "password":
         setDirty({ ...dirty, password: true });
         break;
+        default: 
+        break
     }
   }
   
