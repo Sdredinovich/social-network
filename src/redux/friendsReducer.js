@@ -43,7 +43,7 @@ const friendsReducer = (state = initialState, action) => {
         return {
           ...state,
           friends: state.friends.map((user) => {
-            if (user.id == action.userID) {
+            if (user.id === action.userID) {
               return { ...user, followed: action.value };
             } else {
               return user;

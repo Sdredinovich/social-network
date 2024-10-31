@@ -5,8 +5,8 @@ const DELETE_AUTH_DATA = "DELETE_AUTH_DATA";
 const SET_INIT = "SET_INIT";
 const SET_MY_PROFILE = "SET_MY_PROFILE";
 const SET_CAPTCHA = "SET_CAPTCHA";
-const SET_PROFILE_STATUS = "SET_PROFILE_STATUS";
 const SET_PROFILE_PHOTO = "SET_PROFILE_PHOTO";
+
 const initialState = {
   authData: {
     id: null,
@@ -61,8 +61,12 @@ export const login = (data) => async (dispatch) => {
       return res.data.resultCode;
     case 1:
       return res.data.resultCode;
+      
     case 10:
       dispatch(setCaptchaAC(res.captcha));
+      break
+      default: break
+      
   }
 
 };

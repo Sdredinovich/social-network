@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import s from "./Users.module.css";
 import Paginator from "../Paginator/Paginator";
 import Search from "../Serach/Search";

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import s from './Paginator.module.css'
 
 const Paginator = ({setPage, totalCount, count=10, page})=>{

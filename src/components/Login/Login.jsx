@@ -82,7 +82,6 @@ const Login = (props) => {
   }
   
   const loginSubmit = async (e) => {
-    console.log(formValue)
     e.preventDefault();
     const res = await dispatch(login(formValue))
     if (res === 1) {

@@ -1,13 +1,10 @@
 import s from "./Header.module.css";
-import React, { useState } from "react";
-import popup from "../../photos/popup.png";
+import React from "react";
 import homepage from "./../../photos/home2.png";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LogOut from "./LogOut/LogOut";
 import HeaderNavbar from "./HeaderNavbar";
 import { useSelector } from "react-redux";
-import axios from "axios";
-import { useEffect } from "react";
 
 
 

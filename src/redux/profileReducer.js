@@ -65,7 +65,7 @@ export const getProfile = (userId, isAuth) => async (dispatch) => {
 export const putProfileStatus = (status) => async (dispatch) => {
 
   const res = await profileApi.putProfileStatus(status);
-  if(res.data.resultCode==0){
+  if(res.data.resultCode===0){
     dispatch(setProfileStatusAC(status));
   }
   console.log(res.data);
